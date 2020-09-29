@@ -8,11 +8,13 @@ class App extends React.Component {
     super(props);
     this.state = {
       group : "",
-      results : []};
+      results : [], 
+      millis : 0
+    };
   }
 
   handleClick() {
-    this.setState({group: search()[0], results: [search()[1]]});
+    this.setState({group: search()[0], results: [search()[1]], millis: search()[2]});
     console.log(this.state)
   }
 
@@ -37,6 +39,7 @@ class App extends React.Component {
         <div className="result">
           The Group with the maximum matches is  {this.state.group}
            &nbsp; with &nbsp; {this.state.results}.
+           The result took {this.state.millis} milliseconds. 
         </div>
         <div className="title">Group A</div>
         <div className="groups">

@@ -1,6 +1,10 @@
 import data from "./data.json";
 
 export default function search() {
+
+  const start = Date.now();   
+
+   
   const length = data.selections.length;
 
   let countA, countB, countC, countD, countE, countF; 
@@ -72,6 +76,8 @@ export default function search() {
   const group = resultArray.indexOf(result);
   const groupArray = ["Group A","Group B","Group C","Group D","Group E","Group F"];
   console.log(group, "group");
+  const millis = Date.now() - start;
+  console.log(Math.floor(millis/1000));
 
-  return [groupArray[group],result + " matches"]; 
+  return [groupArray[group],result + " matches", millis]; 
 }
